@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Gestion des contacts
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let contact of contacts">
+      <ion-label>
+        <div>
+          <strong>Nom:</strong> {{ contact.nom }}<br>
+          <strong>Classe:</strong> {{ contact.classe }}<br>
+          <strong >Téléphone:</strong> {{ contact.telephone }}
+        </div>
+      </ion-label>
+      <ion-button color="primary" (click)="editContact(contact)">Modifier</ion-button>
+      <ion-button color="danger" (click)="deleteContact(contact)">Supprimer</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" color="success" (click)="openForm()">Ajouter un contact</ion-button>
+
+  <form *ngIf="formVisible" (submit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="formContact.nom" name="nom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Classe</ion-label>
+      <ion-input type="text" [(ngModel)]="formContact.classe" name="classe"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Téléphone</ion-label>
+      <ion-input type="text" [(ngModel)]="formContact.telephone" name="telephone"></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit" color="primary">Enregistrer</ion-button>
+    <ion-button expand="full" color="light" (click)="closeForm()">Annuler</ion-button>
+  </form>
+</ion-content>

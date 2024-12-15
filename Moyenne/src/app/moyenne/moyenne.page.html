@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Calculer moyenne</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item>
+    <ion-label position="stacked">Matiere 1</ion-label>
+    <ion-input [(ngModel)]="grade1" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Matiere 2</ion-label>
+    <ion-input [(ngModel)]="grade2" type="number"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="calculateAverage()">Calculer La moyenne</ion-button>
+  <ion-item *ngIf="average !== undefined">
+    <ion-label position="stacked" [style.color]="getAverageColor()"  >Moyenne</ion-label>
+    <ion-input [value]="average" readonly></ion-input>
+  </ion-item>
+
+
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Convertisseur de devises</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Devise de base</ion-label>
+      <ion-input [(ngModel)]="baseCurrency" placeholder="Ex: USD"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Devise cible</ion-label>
+      <ion-input [(ngModel)]="targetCurrency" placeholder="Ex: EUR"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Montant</ion-label>
+      <ion-input [(ngModel)]="amount" type="number" placeholder="Montant"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" (click)="convertCurrency()">Convertir</ion-button>
+
+    <ion-item *ngIf="convertedAmount !== null">
+      <ion-label>Montant converti</ion-label>
+      <ion-input [value]="convertedAmount | currency: targetCurrency"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

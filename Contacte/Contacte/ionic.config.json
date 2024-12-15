@@ -1,0 +1,7 @@
+{
+  "name": "contact liste",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
